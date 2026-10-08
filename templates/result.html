@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block title %}Your Result - AI Learning Style Predictor{% endblock %}
+
+{% block content %}
+<section class="result-section">
+    <div class="result-card" id="resultCard">
+        <div class="result-loading">
+            <div class="spinner"></div>
+            <p>Loading your result...</p>
+        </div>
+    </div>
+    <div class="result-actions" id="resultActions" style="display:none;">
+        <a href="{{ url_for('quiz') }}" class="btn btn-secondary">Retake Quiz</a>
+        <a href="{{ url_for('home') }}" class="btn btn-primary">Back to Home</a>
+    </div>
+</section>
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/result.js') }}"></script>
+{% endblock %}

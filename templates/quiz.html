@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+{% block title %}Quiz - AI Learning Style Predictor{% endblock %}
+
+{% block content %}
+<section class="quiz-section">
+    <div class="quiz-header">
+        <h1>Learning Style Quiz</h1>
+        <p>Answer all 10 questions honestly. There are no right or wrong answers &mdash; just choose what feels most like you.</p>
+    </div>
+
+    <div class="quiz-progress-wrapper">
+        <div class="quiz-progress-bar">
+            <div class="quiz-progress-fill" id="progressFill"></div>
+        </div>
+        <span class="quiz-progress-text" id="progressText">Question 1 of 10</span>
+    </div>
+
+    <div class="quiz-card" id="quizCard">
+        <div class="quiz-question-number" id="questionNumber">Question 1</div>
+        <h2 class="quiz-question-text" id="questionText"></h2>
+        <div class="quiz-options" id="optionsContainer"></div>
+    </div>
+
+    <div class="quiz-nav">
+        <button class="btn btn-secondary" id="prevBtn" disabled>&larr; Previous</button>
+        <button class="btn btn-primary" id="nextBtn" disabled>Next &rarr;</button>
+    </div>
+
+    <div class="quiz-loading" id="quizLoading" style="display:none;">
+        <div class="spinner"></div>
+        <p>Analyzing your answers...</p>
+    </div>
+</div>
+
+<script>
+    const QUESTIONS = {{ questions | tojson }};
+</script>
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/quiz.js') }}"></script>
+{% endblock %}
